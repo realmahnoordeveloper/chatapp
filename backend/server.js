@@ -1,5 +1,12 @@
-import dns from "dns"
-dns.setServers(["8.8.8.8","8.8.4.4"])
+// import dns from "dns"
+// dns.setServers(["8.8.8.8","8.8.4.4"])
+import dns from "dns";
+
+// Agar code local computer par chal raha hai (development mode), to hi DNS servers set hon
+if (process.env.NODE_ENV !== "production") {
+  dns.setServers(["8.8.8.8", "8.8.4.4"]);
+}
+
 import path from "path";
 import express from "express";
 import dotenv from "dotenv";
